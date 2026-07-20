@@ -3008,6 +3008,16 @@
 "AiMessageEditorTo" = "To";
 "ButtonHelp" = "Help";
 "UnofficialSecurityRisk" = "{peer} uses an unofficial Telegram client — messages to this user may be less secure.";
+"TelethonSessionLogin" = "Log in with Telethon Session";
+"TelethonSessionTitle" = "Import Telethon Session";
+"TelethonSessionDescription" = "Choose a Telethon .session file. It contains full access to your account and will be processed only on this device.";
+"TelethonSessionChooseFile" = "Choose Session File";
+"TelethonSessionUseDefaultApi" = "Use this app's default API credentials";
+"TelethonSessionApiId" = "API ID";
+"TelethonSessionApiHash" = "API Hash";
+"TelethonSessionImport" = "Import and Log In";
+"TelethonSessionInvalidFile" = "This is not a valid authorized Telethon session file.";
+"TelethonSessionInvalidCredentials" = "Enter a valid API ID and 32-character API hash.";
 "PollModalQuestionTitle" = "Question";
 "PollModalOptionsTitle" = "Options";
 "PollModalSettingsTitle" = "Settings";

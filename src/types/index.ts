@@ -68,6 +68,8 @@ export type SharedSessionData = {
   date?: number;
   dcId: number;
   isTest?: true;
+  apiId?: number;
+  apiHash?: string;
 } & Partial<Record<`dc${DcId}_${'auth_key' | 'server_salt'}`, string>> & SessionUserInfo;
 
 export type AccountInfo = {

@@ -65,6 +65,7 @@
     "@types/hast": "^3.0.4",
     "@types/node": "^26.0.1",
     "@types/react": "^19.2.17",
+    "@types/sql.js": "^1.4.11",
     "@typescript-eslint/eslint-plugin": "^8.62.0",
     "@typescript-eslint/parser": "^8.62.0",
     "autoprefixer": "^10.5.2",
@@ -124,6 +125,7 @@
     "music-metadata": "^11.13.0",
     "opus-recorder": "github:Ajaxy/opus-recorder#116830a",
     "qr-code-styling": "^1.9.2",
+    "sql.js": "^1.14.1",
     "temml": "^0.13.3"
   },
   "browserslist": [

@@ -1,0 +1,55 @@
+.root {
+  text-align: start;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  margin: 0 0 1.5rem;
+  color: var(--color-text-secondary);
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileButton {
+  width: 100%;
+}
+
+.fileName {
+  overflow: hidden;
+
+  margin: 0.5rem 0 0;
+
+  color: var(--color-text-secondary);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.defaultCredentials {
+  margin-top: 1.5rem;
+}
+
+.credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.error {
+  margin: 1rem 0 0;
+  color: var(--color-error);
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}

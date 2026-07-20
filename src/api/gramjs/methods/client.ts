@@ -99,6 +99,8 @@ export async function init(initialArgs: ApiInitialArgs, onConnected?: NoneToVoid
   } = initialArgs;
 
   const session = new sessions.CallbackSession(sessionData, onSessionUpdate);
+  const apiId = sessionData?.apiId ?? TELEGRAM_API_ID;
+  const apiHash = sessionData?.apiHash ?? TELEGRAM_API_HASH;
 
   (self as any).isWebmSupported = isWebmSupported;
 
@@ -106,8 +108,8 @@ export async function init(initialArgs: ApiInitialArgs, onConnected?: NoneToVoid
 
   client = new TelegramClient(
     session,
-    TELEGRAM_API_ID,
-    TELEGRAM_API_HASH,
+    apiId,
+    apiHash,
     {
       deviceModel: navigator.userAgent || userAgent || DEFAULT_USER_AGENT,
       systemVersion: platform || DEFAULT_PLATFORM,

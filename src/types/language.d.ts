@@ -2189,6 +2189,16 @@ export interface LangPair {
   'AiMessageEditorFrom': undefined;
   'AiMessageEditorTo': undefined;
   'ButtonHelp': undefined;
+  'TelethonSessionLogin': undefined;
+  'TelethonSessionTitle': undefined;
+  'TelethonSessionDescription': undefined;
+  'TelethonSessionChooseFile': undefined;
+  'TelethonSessionUseDefaultApi': undefined;
+  'TelethonSessionApiId': undefined;
+  'TelethonSessionApiHash': undefined;
+  'TelethonSessionImport': undefined;
+  'TelethonSessionInvalidFile': undefined;
+  'TelethonSessionInvalidCredentials': undefined;
   'PollModalQuestionTitle': undefined;
   'PollModalOptionsTitle': undefined;
   'PollModalSettingsTitle': undefined;

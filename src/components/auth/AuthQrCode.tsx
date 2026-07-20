@@ -26,6 +26,7 @@ import useMultiaccountInfo from '../../hooks/useMultiaccountInfo';
 import AnimatedIcon from '../common/AnimatedIcon';
 import Button from '../ui/Button';
 import Loading from '../ui/Loading';
+import TelethonSessionLogin from './TelethonSessionLogin';
 
 type StateProps = {
   auth: GlobalState['auth'];
@@ -181,6 +182,7 @@ const AuthCode = ({
             {lang('LoginPasskey')}
           </Button>
         )}
+        {isAuthReady && <TelethonSessionLogin />}
         {suggestedLanguage && suggestedLanguage !== language && continueText && (
           <Button className="auth-button" isText isLoading={isLoading} onClick={handleLangChange}>
             {continueText}

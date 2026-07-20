@@ -36,7 +36,7 @@ export function hasStoredSession() {
 
 export function storeSession(sessionData: ApiSessionData) {
   const {
-    mainDcId, keys, isTest,
+    mainDcId, keys, isTest, apiId, apiHash,
   } = sessionData;
 
   const currentSlotData = loadSlotSession(ACCOUNT_SLOT);
@@ -44,6 +44,8 @@ export function storeSession(sessionData: ApiSessionData) {
     ...currentSlotData,
     dcId: mainDcId,
     isTest,
+    apiId: apiId ?? currentSlotData?.apiId,
+    apiHash: apiHash ?? currentSlotData?.apiHash,
   };
 
   Object.keys(keys).map(Number).forEach((dcId) => {
@@ -107,6 +109,8 @@ export function loadStoredSession(): ApiSessionData | undefined {
 
   const sessionData: ApiSessionData = {
     mainDcId: slotData.dcId,
+    apiId: slotData.apiId,
+    apiHash: slotData.apiHash,
     keys: DC_IDS.reduce((acc, dcId) => {
       const key = slotData[`dc${dcId}_auth_key` as const];
       if (key) {

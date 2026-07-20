@@ -136,6 +136,9 @@ export interface ActionPayloads {
   saveSession: {
     sessionData?: ApiSessionData;
   };
+  importTelethonSession: {
+    sessionData: ApiSessionData;
+  };
 
   // auth
   setAuthPhoneNumber: { phoneNumber: string };

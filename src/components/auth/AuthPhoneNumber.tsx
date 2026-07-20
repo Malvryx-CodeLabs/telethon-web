@@ -27,6 +27,7 @@ import Checkbox from '../ui/Checkbox';
 import InputText from '../ui/InputText';
 import Loading from '../ui/Loading';
 import CountryCodeInput from './CountryCodeInput';
+import TelethonSessionLogin from './TelethonSessionLogin';
 
 import monkeyPath from '../../assets/monkey.svg';
 
@@ -309,6 +310,7 @@ const AuthPhoneNumber = ({
               {lang('LoginPasskey')}
             </Button>
           )}
+          {isAuthReady && <TelethonSessionLogin />}
           {suggestedLanguage && suggestedLanguage !== language && continueText && (
             <Button
               className="auth-button"

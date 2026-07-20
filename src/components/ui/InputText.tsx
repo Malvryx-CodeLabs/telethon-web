@@ -14,6 +14,7 @@ import AnimatedCounter from '../common/AnimatedCounter';
 type OwnProps = {
   ref?: ElementRef<HTMLInputElement>;
   id?: string;
+  type?: 'text' | 'password';
   className?: string;
   value?: string;
   label?: string;
@@ -43,6 +44,7 @@ type OwnProps = {
 const InputText = ({
   ref,
   id,
+  type = 'text',
   className,
   value,
   label,
@@ -86,7 +88,7 @@ const InputText = ({
       <input
         ref={ref}
         className="form-control"
-        type="text"
+        type={type}
         id={id}
         dir="auto"
         value={value || ''}
