@@ -12,7 +12,7 @@ import {
 } from '../api/types';
 import { SettingsScreens } from '../types';
 
-import { ALL_FOLDER_ID } from '../config';
+import { ALL_FOLDER_ID, SMART_FILTER_FOLDER_ID } from '../config';
 import { selectCanShareFolder } from '../global/selectors';
 import { MEMO_EMPTY_ARRAY } from '../util/memo';
 import { renderTextWithEntities } from '../components/common/helpers/renderTextWithEntities';
@@ -34,6 +34,7 @@ type Params = {
   chatFoldersById: Record<number, ApiChatFolder>;
   maxFolders: number;
   noEmoticons?: boolean;
+  withSmartFilter?: boolean;
 } & ({
   isReadOnly?: false;
   maxChatLists: number;
@@ -50,6 +51,7 @@ const useFolderTabs = (params: Params) => {
     chatFoldersById,
     maxFolders,
     noEmoticons,
+    withSmartFilter,
     isReadOnly,
   } = params;
 
@@ -110,7 +112,7 @@ const useFolderTabs = (params: Params) => {
       return undefined;
     }
 
-    return displayedFolders.map((folder, i) => {
+    const tabs: TabWithProperties[] = displayedFolders.map((folder, i) => {
       const { id, title } = folder;
       const isBlocked = id !== ALL_FOLDER_ID && i > maxFolders - 1;
       const canShareFolder = selectCanShareFolder(getGlobal(), id);
@@ -242,9 +244,19 @@ const useFolderTabs = (params: Params) => {
         noTitleAnimations: folder.noTitleAnimations,
       } satisfies TabWithProperties;
     });
+
+    if (withSmartFilter) {
+      tabs.push({
+        id: SMART_FILTER_FOLDER_ID,
+        title: [lang('SmartFilterTab')],
+        emoticon: noEmoticons ? undefined : '🔎',
+      });
+    }
+
+    return tabs;
   }, [
     displayedFolders, maxFolders, folderCountersById, lang, chatFoldersById, maxChatLists, folderInvitesById,
-    maxFolderInvites, folderUnreadChatsCountersById, isReadOnly, sidebarMode, isMobile, noEmoticons,
+    maxFolderInvites, folderUnreadChatsCountersById, isReadOnly, sidebarMode, isMobile, noEmoticons, withSmartFilter,
   ]);
 
   return {

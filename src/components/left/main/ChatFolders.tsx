@@ -7,7 +7,7 @@ import type { GlobalState } from '../../../global/types';
 import type { FolderEditDispatch } from '../../../hooks/reducers/useFoldersReducer';
 import type { AnimationLevel } from '../../../types';
 
-import { ALL_FOLDER_ID } from '../../../config';
+import { ALL_FOLDER_ID, SMART_FILTER_FOLDER_ID } from '../../../config';
 import { selectTabState } from '../../../global/selectors';
 import { selectCurrentLimit } from '../../../global/selectors/limits';
 import { selectSharedSettings } from '../../../global/selectors/sharedState';
@@ -29,6 +29,7 @@ import StoryRibbon from '../../story/StoryRibbon';
 import Transition from '../../ui/Transition';
 import ChatFolderTabList from './ChatFolderTabList';
 import ChatList from './ChatList';
+import SmartChatList from './SmartChatList';
 
 type OwnProps = {
   foldersDispatch: FolderEditDispatch;
@@ -115,8 +116,9 @@ const ChatFolders: FC<OwnProps & StateProps> = ({
     });
   });
 
-  const { displayedFolders, folderTabs } = useFolderTabs({
+  const { folderTabs } = useFolderTabs({
     sidebarMode: false,
+    withSmartFilter: true,
     noEmoticons: true,
     orderedFolderIds,
     chatFoldersById,
@@ -126,7 +128,7 @@ const ChatFolders: FC<OwnProps & StateProps> = ({
     maxFolderInvites,
   });
 
-  const allChatsFolderIndex = displayedFolders?.findIndex((folder) => folder.id === ALL_FOLDER_ID);
+  const allChatsFolderIndex = folderTabs?.findIndex((folder) => folder.id === ALL_FOLDER_ID);
   const isInAllChatsFolder = allChatsFolderIndex === activeChatFolder;
   const isInFirstFolder = FIRST_FOLDER_INDEX === activeChatFolder;
 
@@ -221,8 +223,21 @@ const ChatFolders: FC<OwnProps & StateProps> = ({
   });
 
   function renderCurrentTab(isActive: boolean) {
+    const activeTab = folderTabs![activeChatFolder];
+    if (activeTab.id === SMART_FILTER_FOLDER_ID) {
+      return (
+        <SmartChatList
+          isActive={isActive}
+          isForumPanelOpen={isForumPanelOpen}
+          isFoldersSidebarShown={isFoldersSidebarShown}
+          withTags
+          onScroll={handleScroll}
+        />
+      );
+    }
+
     const activeFolder = Object.values(chatFoldersById)
-      .find(({ id }) => id === folderTabs![activeChatFolder].id);
+      .find(({ id }) => id === activeTab.id);
     const isFolder = activeFolder && !isInAllChatsFolder;
 
     return (

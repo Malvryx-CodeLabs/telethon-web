@@ -1,0 +1,110 @@
+@layer component.smartChatList {
+  .root {
+    position: relative;
+  }
+
+  .controls {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid var(--color-borders);
+    border-radius: var(--border-radius-default);
+
+    background: var(--color-background);
+    box-shadow: var(--shadow-chat-list-panel);
+  }
+
+  .search {
+    margin-bottom: 0.5rem;
+  }
+
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .label {
+    overflow: hidden;
+
+    margin: 0 0.25rem 0.1875rem;
+
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    color: var(--color-text-secondary);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .select {
+    overflow: hidden;
+
+    width: 100%;
+    height: 2.25rem;
+    padding: 0 1.75rem 0 0.625rem;
+    border: 1px solid var(--color-borders);
+    border-radius: 0.5rem;
+
+    font: inherit;
+    font-size: 0.8125rem;
+    color: var(--color-text);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    background: var(--color-background);
+
+    &:focus {
+      border-color: var(--color-primary);
+      outline: none;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+
+  .summary {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 1rem;
+    margin-top: 0.5rem;
+    padding: 0 0.25rem;
+
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .resultCount {
+    color: var(--color-text-secondary);
+  }
+
+  .loading {
+    overflow: hidden;
+    color: var(--color-primary);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chat {
+    position: static;
+  }
+
+  .empty {
+    padding: 2rem 1rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+  }
+}

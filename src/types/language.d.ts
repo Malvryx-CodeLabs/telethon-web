@@ -292,6 +292,34 @@ export interface LangPair {
   'ChatDraftPrefix': undefined;
   'FilterAllChatsShort': undefined;
   'FilterAllChats': undefined;
+  'SmartFilterTab': undefined;
+  'SmartFilterChatType': undefined;
+  'SmartFilterAllTypes': undefined;
+  'SmartFilterPeople': undefined;
+  'SmartFilterBasicGroups': undefined;
+  'SmartFilterSupergroups': undefined;
+  'SmartFilterRole': undefined;
+  'SmartFilterAllRoles': undefined;
+  'SmartFilterManaged': undefined;
+  'SmartFilterNonAdmin': undefined;
+  'SmartFilterLocation': undefined;
+  'SmartFilterAllLocations': undefined;
+  'SmartFilterActive': undefined;
+  'SmartFilterReadState': undefined;
+  'SmartFilterAnyReadState': undefined;
+  'SmartFilterUnread': undefined;
+  'SmartFilterRead': undefined;
+  'SmartFilterNotifications': undefined;
+  'SmartFilterAnyNotification': undefined;
+  'SmartFilterMuted': undefined;
+  'SmartFilterUnmuted': undefined;
+  'SmartFilterSort': undefined;
+  'SmartFilterSortRecent': undefined;
+  'SmartFilterSortName': undefined;
+  'SmartFilterSortUnread': undefined;
+  'SmartFilterSortMembers': undefined;
+  'SmartFilterLoading': undefined;
+  'SmartFilterNoResults': undefined;
   'CreateNewContact': undefined;
   'FilterNoChatsToDisplay': undefined;
   'ChatListEmptyChatListFilterText': undefined;
@@ -3919,6 +3947,9 @@ export interface LangPairPluralWithVariables<V = LangVariable> {
     'count': V;
   };
   'ChatUnpinAllMessagesConfirmation': {
+    'count': V;
+  };
+  'SmartFilterResults': {
     'count': V;
   };
   'GroupInfoParticipantCount': {

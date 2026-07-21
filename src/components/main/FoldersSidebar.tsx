@@ -73,6 +73,7 @@ const FoldersSidebar = ({
 
   const { folderTabs } = useFolderTabs({
     sidebarMode: true,
+    withSmartFilter: true,
     orderedFolderIds,
     chatFoldersById,
     maxFolders,
