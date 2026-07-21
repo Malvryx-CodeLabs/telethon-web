@@ -30,6 +30,10 @@
     }
   }
 
+  &.no-absolute-positioning {
+    position: static;
+  }
+
   &.animate-opacity {
     will-change: opacity;
     transition: opacity 0.2s ease-out;

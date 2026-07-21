@@ -92,6 +92,7 @@ type OwnProps = {
   offsetTop?: number;
   isSavedDialog?: boolean;
   isPreview?: boolean;
+  noAbsolutePositioning?: boolean;
   previewMessageId?: number;
   className?: string;
   withTags?: boolean;
@@ -164,6 +165,7 @@ const Chat: FC<OwnProps & StateProps> = ({
   isSavedDialog,
   currentUserId,
   isPreview,
+  noAbsolutePositioning,
   previewMessageId,
   className,
   isSynced,
@@ -405,6 +407,7 @@ const Chat: FC<OwnProps & StateProps> = ({
     isSelected && 'selected',
     isSelectedForum && 'selected-forum',
     isPreview && 'standalone',
+    noAbsolutePositioning && 'no-absolute-positioning',
     areTagsEnabled && withTags && 'chat-item-with-tags',
     className,
   );

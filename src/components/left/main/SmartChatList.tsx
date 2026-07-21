@@ -310,7 +310,7 @@ const SmartChatList = ({
           shiftDiff={0}
           animationType={ChatAnimationTypes.None}
           isPinned={pinnedChatIds.has(chatId)}
-          className={styles.chat}
+          noAbsolutePositioning
           observeIntersection={observe}
           withTags={withTags}
           isFoldersSidebarShown={isFoldersSidebarShown}
