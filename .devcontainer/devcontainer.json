@@ -1,0 +1,14 @@
+{
+  "name": "Multi-Repo Environment",
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "Malvryx-CodeLabs/telethon-apk": {
+          "permissions": {
+            "contents": "write"
+          }
+        }
+      }
+    }
+  }
+}
